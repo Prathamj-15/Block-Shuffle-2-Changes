@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "id": "blockshuffle",
+  "version": "${version}",
+  "name": "Block Shuffle",
+  "description": "A challenge for 2 or more players: every round you get a random block and must stand on it before time runs out. Use /blockstart and /blockstop.",
+  "authors": ["You"],
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["dev.blockshuffle.BlockShuffleMod"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.4",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
