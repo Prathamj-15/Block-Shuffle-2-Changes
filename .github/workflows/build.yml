@@ -1,0 +1,35 @@
+name: Build mod
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Java 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+          distribution: temurin
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.12
+
+      - name: Build the mod
+        run: gradle build
+
+      - name: Save the finished mod
+        uses: actions/upload-artifact@v4
+        with:
+          name: BlockShuffle-mod
+          path: |
+            build/libs/*.jar
+            !build/libs/*-sources.jar
